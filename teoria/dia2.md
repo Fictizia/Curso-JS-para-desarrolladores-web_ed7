@@ -255,6 +255,8 @@ Proceso porcentajeAlumnos
 	porcentajeHombres <- (cantidadHombres*100)/totalAlumnos
 	Escribir "El total de hombres es: ", cantidadHombres
 	Escribir "El % de hombres es: ", porcentajeHombres
+
+FinProceso
 ```
 
 **3 -** Diseña un programa que lea dos números y los compare. Como resultado esperamos que nos diga cual es mayor... o si son iguales.
