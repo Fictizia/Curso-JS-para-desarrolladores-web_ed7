@@ -205,7 +205,30 @@ Meetup para amantes del Open Source. Nos reunimos una mañana de sábado al mes 
 - Valor de su division
 - Valor de su producto
 ```
-	// Tu solución
+Proceso calculosVarios
+	Escribir "El primer numero:"
+	Leer valor1
+	
+	Escribir "El segundo segundo numero:"
+	Leer valor2
+	
+	// Suma
+	calculo <- valor1+valor2
+	Escribir "El valor de la suma es: ", calculo
+	
+	// Resta
+	calculo <- valor1-valor2
+	Escribir "El valor de la resta es: ", calculo
+	
+	// División
+	calculo <- valor1/valor2
+	Escribir "El valor de la división es: ", calculo
+	
+	// Multiplicación
+	calculo <- valor1*valor2
+	Escribir "El valor de la multiplicación es: ", calculo
+	
+FinProceso
 ```
 
 **2 -** Diseña un programa para calcular el porcentaje de hombres y mujeres en nuestro curso.
