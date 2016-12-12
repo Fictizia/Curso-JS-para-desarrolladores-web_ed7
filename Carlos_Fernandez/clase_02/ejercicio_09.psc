@@ -1,12 +1,23 @@
 Algoritmo sin_titulo
-	Segun variable_numerica Hacer
-		opcion_1:
-			secuencia_de_acciones_1
-		opcion_2:
-			secuencia_de_acciones_2
-		opcion_3:
-			secuencia_de_acciones_3
-		De Otro Modo:
-			secuencia_de_acciones_dom
-	Fin Segun
+	Escribir "Introduce Contraseña"
+	Leer pass
+	
+	Si (pass="Fictizia mola mucho")
+		Escribir "Estas dentro"
+		SiNo
+			Escribir "Introduce Contraseña"
+			Leer pass2
+			Si (pass2="Fictizia mola mucho")
+				Escribir "Estas dentro"
+			SiNo
+				Escribir "Introduce Contraseña"
+				Leer pass3
+				Si (pass3="Fictizia mola mucho")
+					Escribir "Estas dentro"
+				Sino
+					Escribir "Has agotado los intentos"
+				FinSi
+			FinSi
+	FinSi
+	
 FinAlgoritmo
