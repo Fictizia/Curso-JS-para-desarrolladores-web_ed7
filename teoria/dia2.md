@@ -335,48 +335,234 @@ FinProceso
 	FinProceso
 ```
 
-**6 -** Diseña un programa que aplique al precio de un producto un descuento cuando se den las siguientes caracteristicas.
+6 - Diseña un algoritmo que aplique al precio de un producto un descuento cuando se den las siguientes caracteristicas.
 - Se aplica un 25% cuando:
 	- Estamos en los meses de invierno
 	- Y no es viernes o fin de semana.
 ```
-	// Tu solución
+	Proceso calcularDescuento
+	    Escribir "¿En que mes estamos?"
+	    Leer mes
+		
+	    Escribir "¿En que día estamos?"
+	    Leer diaSemana
+		
+	    Escribir "¿Cuanto vale el producto?"
+	    Leer precio	
+		
+		descuento <- 25*precio/100
+		precioConDescuento <- precio - descuento
+		
+		
+		Si mes = "Diciembre" | mes = "Enero" | mes = "Febrero"  Entonces
+			Si diaSemana = "Viernes" | diaSemana = "Sabado" | diaSemana  = "Domingo"  Entonces
+				Escribir "No se aplica descuento aunque sea invierno.. ven durante la semana mejor!. Debes pagar ", precio
+			Sino
+				Escribir "BINGO! Has acertado de mes y días. Debes pagar solamente ", precioConDescuento
+			Fin Si
+		Sino 
+			Escribir "No se aplica descuento.. ven en invierno mejor!. Debes pagar ", precio		
+		FinSi
+	
+	FinProceso
 ```
 
-**7 -** Diseña un programa que al introducir un numero por teclado. Que nos diga si es positivo o negativo.
+7 - Diseña un algoritmo que al introducir un numero por teclado. Que nos diga si es positivo o negativo.
 ```
-	// Tu solución
+	 Proceso esPositivo
+		Escribir "Dame un número:"
+		Leer numero
+		
+		Si numero < 0 Entonces
+			Escribir numero, " es negativo"
+		Sino 
+			Escribir numero, " es positivo"
+		FinSi
+	
+	FinProceso 
 ```
 
-**8 -** Diseña un programa que al  introducir un numero por teclado. Que nos diga si es par o impar.
+8 - Diseña un algoritmo que al  introducir un numero por teclado. Que nos diga si es par o impar.
 ```
-	// Tu solución
+	Proceso esPar
+		Escribir "Dame un número:"
+		Leer numero
+		
+		Si numero %2 = 0 Entonces
+			Escribir numero, " es par"
+		Sino 
+			Escribir numero, " es impar"
+		FinSi
+	
+	FinProceso
 ```
 
-**9 -**  Diseña un programa para identificar a los clientes autorizados a entrar a nuestro sistema.
+9 -  Diseña un algoritmo para identificar a los clientes autorizados a entrar a nuestro sistema.
 - Características:
 	- La palabra clave es "Fictizia mola mucho"
 	- Solo existen tres intentos
 	- Si se pasan los tres intentos. Se despliega un mensaje informativo.
 ```
-	// Tu solución
+	Proceso eureka
+		clave <- "Fictizia mola mucho"
+		acierto <- FALSO
+		contador <- 0
+		
+		Mientras contador < 3 & acierto = FALSO Hacer
+			Escribir "Dime el secreto:"
+			Leer secreto
+			
+			Si secreto = clave Entonces
+				acierto <- VERDADERO
+				Escribir secreto, " es la clave que esperaba!"
+			Sino
+				Escribir secreto, " no es correcto."
+			Fin Si
+			
+			contador<- contador+1
+			
+		Fin Mientras
+		
+		Si contador >= 3 Entonces
+			Escribir "Lo siento... pero has agotado los 3 intentos."
+		Fin Si
+	
+	FinProceso
 ```
 
-**10 -** Diseña un programa que confirme si una fecha es valida y además devuelva la fecha en dos formatos diferentes.
+10 - Diseña un algoritmo que confirme si una fecha es valida y además devuelva la fecha en dos formatos diferentes.
 - Características:
 	- El usuario introduce tres números (día, mes, año)
 	- Validar la fecha. En caso de error incluir un mensaje informativo.
 	- Después de validar, devolvemos la fecha en formato DD/MM/AAAA
 	- Convertimos el número del mes, en el nombre del mes real y devolvemos la fecha en el siguiente formato ( DD de MES de AAAA)
 ```
-	// Tu solución
+	Proceso verificadorDeFechas
+		
+		Escribir "Dime el Año:"
+		Leer year
+		
+		Escribir "Dime el Mes:"
+		Leer month
+		
+		Escribir "Dime el Dia:"
+		Leer day
+		
+		fecha <- ConvertirATexto(day) + "/" + ConvertirATexto(month) + "/" + ConvertirATexto(year)
+	
+		Si day <= 31 & day > 0 & month <= 12 & month > 0 & year > 0  Entonces
+			Escribir "La fecha es correcta ", fecha
+			
+			Segun month Hacer
+				1:
+					fechaDetalle <- ConvertirATexto(day) + "de Enero de " + ConvertirATexto(year)
+				2:
+					fechaDetalle <- ConvertirATexto(day) + "de Febrero de " + ConvertirATexto(year)
+				3:
+					fechaDetalle <- ConvertirATexto(day) + "de Marzo de " + ConvertirATexto(year)
+				4: 
+					fechaDetalle <- ConvertirATexto(day) + "de Abril de " + ConvertirATexto(year)
+				5:
+					fechaDetalle <- ConvertirATexto(day) + "de Mayo de " + ConvertirATexto(year)
+				6:
+					fechaDetalle <- ConvertirATexto(day) + "de Junio de " + ConvertirATexto(year)
+				7:
+					fechaDetalle <- ConvertirATexto(day) + "de Julio de " + ConvertirATexto(year)
+				8:
+					fechaDetalle <- ConvertirATexto(day) + "de Agosto de " + ConvertirATexto(year)
+				9:
+					fechaDetalle <- ConvertirATexto(day) + "de Septiembre de " + ConvertirATexto(year)
+				10:
+					fechaDetalle <- ConvertirATexto(day) + "de Octubre de " + ConvertirATexto(year)
+				11: 
+					fechaDetalle <- ConvertirATexto(day) + "de Noviembre de " + ConvertirATexto(year)
+				12:
+					fechaDetalle <- ConvertirATexto(day) + "de Diciembre de " + ConvertirATexto(year)
+			Fin Segun
+			
+			Escribir "La fecha en otro formato: ", fechaDetalle
+			
+		Sino
+			Escribir "Error! los datos no son correctos!"
+		Fin Si
+		
+	FinProceso 
 ```
 
-**11 -** Diseña un programa introducido un numero y pasarlo a número romanos.
+11 - Diseña un algoritmo introducido un numero y pasarlo a número romanos.
 - Esperamos que el número sea menor de 50
 
 ![numeros_romanos](https://eloviparo.files.wordpress.com/2009/09/numeros-romans.jpg?w=466&h=172)
 
 ```
-	// Tu solución
+	Proceso conversionRomana
+		Escribir "Dame un número:"
+		Leer numero
+		
+		numeroOriginal <- numero
+		numeroRomano <- ""
+		
+		Si numero <= 50 & numero > 0 Entonces
+			
+				Mientras numero > 0 Hacer
+					// Escribir "Numero: ", numero
+					
+					Si numero = 50 Entonces
+						numeroRomano = "L"
+						numero = 0
+					Fin Si
+					
+					Si numero >= 40 & numero < 50 Entonces
+						numeroRomano = numeroRomano + "XL"
+						numero = numero - 40
+					Fin Si
+					
+					Si numero >= 10 & numero < 40 Entonces
+						numeroRomano = numeroRomano + "X"
+						numero = numero - 10
+					Fin Si	
+					
+					Si numero = 9 Entonces
+						numeroRomano = numeroRomano + "IX"
+						numero = numero - 9
+					Fin Si		
+					
+					Si numero = 8 Entonces
+						numeroRomano = numeroRomano + "VIII"
+						numero = numero - 8
+					Fin Si	
+					
+					Si numero = 7 Entonces
+						numeroRomano = numeroRomano + "VII"
+						numero = numero - 7
+					Fin Si	
+					
+					Si numero = 6 Entonces
+						numeroRomano = numeroRomano + "VI"
+						numero = numero - 6
+					Fin Si	
+					
+					Si numero = 5 Entonces
+						numeroRomano = numeroRomano + "V"
+						numero = numero - 5
+					Fin Si	
+					
+					Si numero = 4 Entonces
+						numeroRomano = numeroRomano + "IV"
+						numero = numero -4
+					Fin Si
+					
+					Si numero <= 3 & numero > 0 Entonces
+						numeroRomano = numeroRomano + "I"
+						numero = numero - 1
+					Fin Si		
+					
+				Fin Mientras
+				
+				Escribir numeroOriginal " en números romanos es " numeroRomano
+		Sino
+			Escribir numeroOriginal " NO es un número valido (0-50)"
+		Fin Si
+		
+	FinProceso
 ```
