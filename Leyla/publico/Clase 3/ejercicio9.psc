@@ -1,3 +1,9 @@
+Funcion dado <- fLanzarDado()
+	Repetir	
+		dado = azar(7)
+	Hasta Que dado!=0
+Fin Funcion
+
 Algoritmo DosDados
 	
 	Escribir "Iniciando tiradas.."
@@ -6,11 +12,9 @@ Algoritmo DosDados
 	contadorSuma = 0
 	
 	Mientras i < 100 Hacer
-
-		Repetir
-			dado1 = azar(7)
-			dado2 = azar(7)
-		Hasta Que dado1!=0 && dado2!=0
+		
+		dado1 = fLanzarDado()
+		dado2 = fLanzarDado()
 		
 		Escribir "dado1: ", dado1
 		Escribir "dado2: ", dado2

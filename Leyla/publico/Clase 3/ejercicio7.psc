@@ -20,7 +20,7 @@ Algoritmo contarLetra
 		
 	Fin Mientras
 	
-	Escribir "El número de letra a en el texto es de ", nroLetras
+	Escribir "El número de letra o en el texto es de ", nroLetras
 	
 	
 FinAlgoritmo

@@ -1,6 +1,6 @@
-Algoritmo Dados
+Algoritmo LanzarMoneda
 	
-	Escribir "Lanzando dados.."
+	Escribir "Lanzando moneda.."
 	
 	moneda <- azar(2)
 	
