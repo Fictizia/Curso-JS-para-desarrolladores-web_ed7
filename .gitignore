@@ -36,5 +36,9 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+<<<<<<< Updated upstream
 # Ignorar ficheros de MAC
 .DS_Store
+=======
+Merce/Privada/Privada
+>>>>>>> Stashed changes
