@@ -30,7 +30,12 @@
 - Especificaciones:
 	- Imprimir tu nombre usando **console.log, console.info, console.warn**
 ```javascript
-	// Tu solución!
+	var nombre = "Hola, yo soy Ulises Gascón";
+	console.time("presentación");
+	console.log(nombre);
+	console.info(nombre);
+	console.warn(nombre);
+	console.timeEnd("presentación");
 ```
 
 **3 -** Partiendo del ejercicio anterior mejora los estilos de cada mensaje usando estilos.
