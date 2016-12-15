@@ -1,0 +1,14 @@
+var nombre = prompt("¿Cómo te llamas?");
+
+console.log(nombre);
+
+var respuesta = confirm("¿Deseas comprobar lo rápido que funciona tu navegador?");
+
+if (respuesta) {
+  console.time("Duración de la carga de estilos");
+  console.log("%c %s", "background-color:purple; color:#fff;", nombre);
+  console.timeEnd("Duración de la carga de estilos");
+
+} else {
+  alert("No se va a aplicar ningún estilo");
+}

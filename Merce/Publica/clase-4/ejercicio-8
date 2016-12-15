@@ -1,0 +1,8 @@
+var hombres = 6;
+var mujeres = 2;
+
+var porcentajeHombres = hombres/(hombres+mujeres);
+var porcentajeMujeres = mujeres/(hombres+mujeres);
+
+console.log("El porcentaje de hombres es", porcentajeHombres);
+console.log("El porcentaje de mujeres es", porcentajeMujeres);
