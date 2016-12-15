@@ -355,7 +355,9 @@ function era3 () {
 	-  Captura el nombre del usuario usando prompt
 	-  Pregunta al usuario si desea *"comprobar lo rápido que funciona su navegador"*.
 	-  En caso afirmativo imprimiremos el nombre del usuario por consola aplicandole estilos y calculando el tiempo que tarda en realizar la operación
-- En caso negativo mostraremos un *alert* informativo.
+    - En caso negativo mostraremos un *alert* informativo.
+
+- Versión 1:
 ```javascript
 	var usuario = prompt("¿Quien eres?");
 
@@ -387,6 +389,44 @@ function era3 () {
 	    alert(usuario+" no desea saberlo");
 	}
 ```
+
+- Versión 2:
+```javascript
+	var usuario = prompt("¿Quien eres?");
+
+	while(!usuario){
+		usuario = prompt("¿Quien eres?")
+	}
+
+	var respuesta = confirm("Bienvenido "+usuario+", ¿Deseas ver lo rápido que funciona tu navegador?");
+	if (respuesta) {
+	
+	    // console.log
+	    console.group("grupo console.log");
+	    console.time("tiempo grupo console.log");
+	    console.log("%c %s", "background: black; color: #FFF; font-size:20px;" ,usuario);
+	    console.timeEnd("tiempo grupo console.log");
+	    console.groupEnd();
+	
+	    // console.info
+	    console.group("grupo console.info");
+	    console.time("tiempo grupo console.info");
+	    console.info("%c %s", "background: #3EBDFF; color: #FFF; font-size:20px;" ,usuario);
+	    console.timeEnd("tiempo grupo console.info");
+	    console.groupEnd();
+	
+	    // console.warn
+	    console.group("grupo console.warn");
+	    console.time("tiempo grupo console.warn");
+	    console.warn("%c %s", "background: #FFAA00; color: #FFF; font-size:22px;" ,usuario);
+	    console.timeEnd("tiempo grupo console.warn");
+	    console.groupEnd();
+	
+	} else {
+	    alert(usuario+" no desea saberlo");
+	}
+```
+
 
 ### Modo Estricto
 > El modo estricto hace varios cambios en la semántica normal de JavaScript. Primero, modo estricto elimina algunos errores silenciosos de JavaScript cambiando a que lance los errores. Segundo, modo estricto corrige errores que hacen que sea difícil para los motores de JavaScript para realizar optimizaciones: código de modo estricto a veces se puede hacer para correr más rápido que el código idéntico que no es estricto. Tercero, el modo estricto prohíbe sintaxis que es probable que sea definida en futuras versiones de ECMAScript.
