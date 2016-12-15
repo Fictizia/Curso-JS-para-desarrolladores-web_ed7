@@ -1,10 +1,19 @@
 Algoritmo sin_titulo
-	Escribir "Escribe un numero"
-	Leer numero
 	
-
-	Para numero<-numero Hasta numero+50 Con Paso +1 Hacer
-			Escribir numero
-		Fin Para
+	Escribir "Dime un numero"
+	Leer num
+	
+	contador = 0
+	
+	Mientras contador<50
+		
+		Si num % 2 != 0
+			Entonces Escribir num
+		FinSi
+		
+		num = num + 1
+		contador = contador + 1	
+	FinMientras
+	
 	
 FinAlgoritmo
