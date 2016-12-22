@@ -44,7 +44,7 @@ Teoría | Recursos
 [Clase 2](teoria/dia2.md) | [Clase 2](recursos/dia2.md)
 [Clase 3](teoria/dia3.md) | [Clase 3](recursos/dia3.md)
 [Clase 4](teoria/dia4.md) | [Clase 4](recursos/dia4.md)
-Clase 5 | Clase 5
+[Clase 5](teoria/dia5.md) | [Clase 5](recursos/dia5.md)
 Clase 6 | Clase 6
 Clase 7 | Clase 7
 Clase 8 | Clase 8
