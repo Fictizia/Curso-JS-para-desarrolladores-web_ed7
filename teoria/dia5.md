@@ -292,4 +292,4 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 	// Tu solución!
 ```
 
-### Reto Navideño
+### [Reto Navideño](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed7/issues/9)
