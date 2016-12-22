@@ -1,0 +1,19 @@
+var nombre = "Merce";
+
+console.time("Medición de Log");
+	console.group("Log");
+  	console.log(nombre);
+	console.groupEnd("Log");  
+console.timeEnd("Medición de Log");
+
+console.time("Medición de Info");
+	console.group("Info");
+		console.info(nombre);
+	console.groupEnd("Info");
+console.timeEnd("Medición de Info");
+
+console.time("Medición de Warn");
+	console.group("Warn");
+		console.warn(nombre);
+	console.groupEnd("Warn");
+console.timeEnd("Medición de Warn");

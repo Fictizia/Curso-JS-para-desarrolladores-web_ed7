@@ -1,0 +1,9 @@
+var compañeros = [
+   { nombre: "Leyla", posicion: "1" },
+
+
+];
+
+console.table(compañeros);
+
+console.table(compañeros, "posicion");

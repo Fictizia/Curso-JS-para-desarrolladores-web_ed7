@@ -2,7 +2,6 @@
 
 
 //  Dise–a un programa para identificar a los clientes autorizados a entrar a nuestro sistema.
-
 //	caracter’sticas:
 //	La palabra clave es "Fictizia mola mucho"
 //	Solo existen tres intentos
@@ -12,16 +11,17 @@
 
 Algoritmo ejercicio_9
 	
-	contrasena = "fictizia mola mucho"
+	contrasena = "fictizia"
+	acierto = Falso
 	intentos = 0
 	
-	Escribir "dime la contrasena"
-	Leer contrasena_ingreasada
-	
-	Mientras intentos < 3 Hacer
+	Mientras intentos < 3  Y acierto = Falso Hacer
+		Escribir "dime la contrasena"
+		leer contrasenaUsuario
 		
-		Si contrasena = contrasena_ingreasada Entonces
+		Si contrasena = contrasenaUsuario  Entonces
 			Escribir "contrasena correcta"
+			acierto = Verdadero
 		Sino
 			Escribir "contrasena incorrecta"
 		Fin Si
@@ -30,6 +30,14 @@ Algoritmo ejercicio_9
 		
 	Fin Mientras
 	
-	
+	Si intentos >= 3 Entonces
+		Escribir "has superado los tres intentos"
+	Fin Si
 	
 FinAlgoritmo
+
+
+
+
+
+

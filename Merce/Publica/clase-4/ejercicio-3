@@ -1,0 +1,8 @@
+console.time("Medición de tareas");
+	var nombre = "Merce";
+  
+  	console.log(nombre);
+	console.info(%c. nombre);
+	console.warn(nombre);
+  
+console.timeEnd("Medición de tareas");

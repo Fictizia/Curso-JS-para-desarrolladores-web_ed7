@@ -1,0 +1,2 @@
+var controlador = false;
+console.assert(controlador, "Merce");

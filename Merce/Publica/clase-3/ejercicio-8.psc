@@ -1,6 +1,6 @@
 Algoritmo Ejercicio8
 	Escribir "Se va a lanzar una moneda:"
-	cara <- azar(1)
+		cara <- azar(2)
 	
 	Si (cara = 0) Entonces
 		Escribir "Ha sido cara"
