@@ -1,0 +1,33 @@
+var numero1 = prompt("Inserta un número:");
+var numero2 = prompt("Inserta otro número:");
+
+numero1 = parseInt(numero1);
+numero2 = parseInt(numero2);
+
+if (numero1 > numero2) {
+	console.log("El número 1 es mayor");
+} else if (numero1 < numero2) {
+	console.log("El número 2 es mayor");
+} else {
+	console.log("Ambos números son iguales");	
+}
+
+numero1 > numero2 ? (
+	console.log("El numero 1 es mayor")
+) : numero1 < numero2 ? (
+	console.log("El número 2 es mayor")
+) : (
+	console.log("Ambos números son iguales")
+);
+
+switch (true)
+{
+	case (numero1>numero2):
+		console.log("El número 1 es mayor");
+		break;
+	case (numero1<numero2):
+		console.log("El número 2 es mayor");
+		break;
+	default:
+		console.log("Ambos números son iguales");
+}

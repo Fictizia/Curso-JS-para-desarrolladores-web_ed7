@@ -1,0 +1,18 @@
+var mes = prompt("¿En qué mes estamos?");
+var dia = prompt("¿Qué día de la semana es?");
+var precio = parseInt(prompt("¿Cuánto vale el producto?"));
+var descuento = 0.75;
+
+if (mes === "noviembre" || mes === "diciembre" || mes === "enero" || mes === "febrero" || mes === "marzo") {
+	if (dia === "viernes" || dia === "sabado" || dia === "domingo") {
+    console.warn("En fin de semana no se realiza el descuento. Ven entre semana");
+	} else
+		var descontado = precio * descuento;
+		console.info("El producto ahora vale "+descontado);		
+} else {
+	console.warn("Si no es invierno no realizamos el descuento. Vuelve cuando haga frío");
+}
+
+(mes === "noviembre", mes === "diciembre", mes === "enero", mes === "febrero", mes === "marzo") ? 
+	(dia === "viernes", dia === "sabado", dia === "domingo") ? 
+    console.warn("En fin de semana no se realiza el descuento. Ven entre semana" : (descontado = precio * descuento, console.info("El producto ahora vale "+descontado)	: console.warn("Si no es invierno no realizamos el descuento. Vuelve cuando haga frío");

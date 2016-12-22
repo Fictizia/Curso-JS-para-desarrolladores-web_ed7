@@ -1,0 +1,24 @@
+var numero1 = parseInt(prompt("Inserta un número:"));
+var numero2 = parseInt(prompt("Inserta otro número:"));
+var numero3 = parseInt(prompt("Inserta otro número:"));
+
+if (numero1 < 0) {
+	var suma = numero2 + numero3;
+	console.log(suma);
+} else {
+	var multiplicacion = numero1 * numero2 * numero3;
+	console.log(multiplicacion);
+}
+
+numero1 < 0 ? (suma = numero2 + numero3, console.log(suma)) :
+(multiplicacion = numero1 * numero2 * numero3, console.log(multiplicacion));
+
+switch(true) {
+	case numero1<0:
+		var suma = numero2 + numero3;
+		console.log(suma);
+		break;
+	default:
+		var multiplicacion = numero1 * numero2 * numero3;
+		console.log(multiplicacion);	
+}
