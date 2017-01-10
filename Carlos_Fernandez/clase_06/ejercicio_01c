@@ -1,0 +1,9 @@
+var i = 0;
+do {	
+   i++;
+   var clave_usuario = prompt("Introduce tu clave");
+	if (clave_usuario == clave_correcta){
+		console.log("Estas dentro");
+		break;
+	}
+} while (i < 3);
