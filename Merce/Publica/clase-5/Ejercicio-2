@@ -1,0 +1,30 @@
+var numero1 = prompt("Inserta un número:");
+var numero2 = prompt("Inserta otro número:");
+var numero3 = prompt("Inserta otro número:");
+
+numero1 = parseInt(numero1);
+numero2 = parseInt(numero2);
+numero3 = parseInt(numero3);
+
+if (numero1 > numero2 && numero1 > numero3) {
+	console.log("El número 1 es el mayor");
+} else if (numero2 > numero1 && numero2 > numero3) {
+	console.log("El número 2 es el mayor");
+} else {
+	console.log("El número 3 es el mayor");
+}
+
+numero1 > numero2 && numero1 > numero3 ? console.log("El numero 1 es el mayor") :
+numero2 > numero1 && numero2 > numero3 ? console.log("El número 2 es el mayor") :
+console.log("El número 3 es el mayor");
+
+switch(true) {
+	case numero1 > numero2 && numero1 > numero3:
+		console.log("El número 1 es el mayor");
+		break;
+	case numero2 > numero1 && numero2 > numero3:
+		console.log("El número 2 es el mayor");
+		break;	
+	default:
+		console.log("El número 3 es el mayor");
+}

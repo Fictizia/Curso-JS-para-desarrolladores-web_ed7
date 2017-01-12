@@ -1,0 +1,11 @@
+var clave_correcta = "Fictizia";
+
+for (var i=0; i<3; i++){
+	var clave_usuario = prompt("Introduce tu clave");
+	if (clave_usuario == clave_correcta){
+		console.log("Estas dentro");
+		break;
+	}
+}
+
+console.log("Te pasaste de los 3 intentos");
