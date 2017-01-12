@@ -1,0 +1,6 @@
+var moneda = Math.floor(Math.random() * (11 - 0)) + 0;
+if (moneda%2 == 0){
+	console.log("Ha salido cara");
+}else{
+	console.log("Ha salido cruz");
+}
