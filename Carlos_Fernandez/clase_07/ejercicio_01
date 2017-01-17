@@ -1,0 +1,2 @@
+var moneda = Math.floor(Math.random() * (3 - 1)) + 1;
+(moneda == 1) ? console.log("cara") : console.log("cruz");

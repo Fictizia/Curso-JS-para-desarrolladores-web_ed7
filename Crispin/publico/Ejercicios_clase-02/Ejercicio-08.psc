@@ -1,4 +1,4 @@
-Proceso LogIn
+Proceso parImpar
 	
 	Escribir "Dise–a un programa que al introducir un numero por teclado. Que nos diga si es par o impar."
 	Escribir " "//separaci—n
