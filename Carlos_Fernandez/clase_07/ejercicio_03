@@ -1,3 +1,21 @@
-function fecha_valida(dia, mes, year){
-	
+var dia = 2;
+var mes = 1;
+var year = 1984;
+
+var fecha = new Date(year, mes-1, dia);
+
+if (fecha.getFullYear() == year){
+	var opciones = { 
+    weekday: 'long',
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric'};
+
+    console.log("Fecha primer formato:" + fecha.getDay() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear());
+    console.log("Fecha segundo formato:" + fecha.toLocaleString("es-ES", opciones));
+
+}else{
+	console.log ("Esta fecha no es valida");
 }
+
+
