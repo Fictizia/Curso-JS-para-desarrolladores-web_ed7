@@ -1,6 +1,7 @@
 
 /*
-¿Cuantas horas han pasado desde que emepezó este curso? y... ¿en días?
+Junta estos tres Arrays ["Oscar", ...], [9897667, ...], [false, ...] 
+de tal forma que construyan un único Array anidado [["Oscar", 9897667, false], [etc...]]
 */
 
 
