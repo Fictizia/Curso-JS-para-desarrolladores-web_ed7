@@ -472,39 +472,262 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de bucles (D
 	}
 ```
 
-**6 -** Diseña un script que imprima la suma de los 50 primeros numeros pares y el total de números impares partiendo de un número dado por el usuario
+**6 -** Diseña un algoritmo que imprima la suma de los 50 primeros numeros pares y el total de números impares partiendo de un número dado por el usuario
 
 - Usando *for*
 ```javascript
-	// Tu solución!
+	function contadorEspecial(numero) {
+		
+		var totalImpares = 0;
+		var totalPares = 0;
+
+		console.info("Empieza la cuenta!");
+
+		for (var i = 1; i <= 50; i++) {
+			
+			if (numero % 2 !== 0){
+				totalImpares += numero;
+				numero++;
+			} else {
+				totalPares += numero;
+				numero++;
+			}
+			
+		};
+
+		console.info("Total de suma de pares ", totalPares);
+		console.info("Total de suma de impares ", totalImpares);
+		console.info("Terminó la cuenta mágica...");
+	}
 ```
 
 - Usando *while*
 ```javascript
-	// Tu solución!
+	function contadorEspecial(numero) {
+
+		var totalImpares = 0;
+		var totalPares = 0;
+
+		console.info("Empieza la cuenta!");
+		
+		var i = 1
+		while (i <= 50) {
+			if (numero % 2 !== 0){
+				totalImpares += numero;
+				numero++;
+			} else {
+				totalPares += numero;
+				numero++;
+			}
+			i++;
+		};
+
+		console.info("Total de suma de pares ", totalPares);
+		console.info("Total de suma de impares ", totalImpares);
+		console.info("Terminó la cuenta mágica...");
+	}
 ```
 
 - Usando *Do...While*
 ```javascript
-	// Tu solución!
+	function contadorEspecial(numero) {
+
+		var totalImpares = 0;
+		var totalPares = 0;
+
+		console.info("Empieza la cuenta!");
+		
+		var i = 1
+		do {
+			if (numero % 2 !== 0){
+				totalImpares += numero;
+				numero++;
+			} else {
+				totalPares += numero;
+				numero++;
+			}
+			i ++;
+		} while (i <= 50);
+
+		console.info("Total de suma de pares ", totalPares);
+		console.info("Total de suma de impares ", totalImpares);
+		console.info("Terminó la cuenta mágica...");
+	}
 ```
 
-**7 -** Diseña un script introducido un numero y pasarlo a número romanos.
+**7 -** Diseña un algoritmo introducido un numero y pasarlo a número romanos.
 - Esperamos que el número sea menor de 50
 
 ![numeros_romanos](https://eloviparo.files.wordpress.com/2009/09/numeros-romans.jpg?w=466&h=172)
 
 - Usando *for*
 ```javascript
-	// Tu solución!
+	function conversionRomana(numero) {
+		
+		var numeroOriginal = numero;
+	  
+
+		if (numero <= 50 && numero > 0){
+
+	    var numeroRomano = "";
+	    
+			for(; numero > 0 ;){
+				
+				if(numero === 50){
+					numeroRomano = "L";
+					numero = 0;
+				} else if (numero >= 40 && numero < 50){
+					numeroRomano += "XL";
+					numero -= 40;
+				} else if (numero >= 10 && numero < 40){
+					numeroRomano += "X";
+					numero -= 10;
+				} else if(numero === 9){
+					numeroRomano += "IX";
+					numero -= 9;
+				} else if(numero === 8){
+					numeroRomano += "VIII";
+					numero -= 8;
+				} else if (numero === 7){
+					numeroRomano += "VII";
+					numero -= 7;
+				} else if (numero === 6){
+					numeroRomano += "VI";
+					numero -= 6;
+				} else if (numero === 5) {
+					numeroRomano += "V";
+					numero -= 5;
+				} else if (numero === 4){
+					numeroRomano += "IV";
+					numero -= 4;				
+				} else if(numero <= 3 && numero > 0){
+					numeroRomano += "I";
+					numero -= 1;
+				}
+	      
+			}
+
+			console.info(numeroOriginal + " en números romanos es " + numeroRomano);
+
+		} else {
+	    
+			console.warn(numeroOriginal + "NO es un número valido (0-50)");
+		
+	  	}
+
+	}
 ```
 
 - Usando *while*
 ```javascript
-	// Tu solución!
+	function conversionRomana(numero) {
+		
+		var numeroOriginal = numero;
+	  
+
+		if (numero <= 50 && numero > 0){
+
+	    var numeroRomano = "";
+	    
+			while(numero > 0){
+				
+				if(numero === 50){
+					numeroRomano = "L";
+					numero = 0;
+				} else if (numero >= 40 && numero < 50){
+					numeroRomano += "XL";
+					numero -= 40;
+				} else if (numero >= 10 && numero < 40){
+					numeroRomano += "X";
+					numero -= 10;
+				} else if(numero === 9){
+					numeroRomano += "IX";
+					numero -= 9;
+				} else if(numero === 8){
+					numeroRomano += "VIII";
+					numero -= 8;
+				} else if (numero === 7){
+					numeroRomano += "VII";
+					numero -= 7;
+				} else if (numero === 6){
+					numeroRomano += "VI";
+					numero -= 6;
+				} else if (numero === 5) {
+					numeroRomano += "V";
+					numero -= 5;
+				} else if (numero === 4){
+					numeroRomano += "IV";
+					numero -= 4;				
+				} else if(numero <= 3 && numero > 0){
+					numeroRomano += "I";
+					numero -= 1;
+				}
+	      
+			}
+
+			console.info(numeroOriginal + " en números romanos es " + numeroRomano);
+
+		} else {
+	    
+			console.warn(numeroOriginal + "NO es un número valido (0-50)");
+		
+	  }
+
+	}
 ```
 
 - Usando *Do...While*
 ```javascript
-	// Tu solución!
+	function conversionRomana(numero) {
+		var numeroOriginal = numero;
+	  
+
+		if (numero <= 50 && numero > 0){
+
+	    var numeroRomano = "";
+	    
+			do{
+				
+				if(numero === 50){
+					numeroRomano = "L";
+					numero = 0;
+				} else if (numero >= 40 && numero < 50){
+					numeroRomano += "XL";
+					numero -= 40;
+				} else if (numero >= 10 && numero < 40){
+					numeroRomano += "X";
+					numero -= 10;
+				} else if(numero === 9){
+					numeroRomano += "IX";
+					numero -= 9;
+				} else if(numero === 8){
+					numeroRomano += "VIII";
+					numero -= 8;
+				} else if (numero === 7){
+					numeroRomano += "VII";
+					numero -= 7;
+				} else if (numero === 6){
+					numeroRomano += "VI";
+					numero -= 6;
+				} else if (numero === 5) {
+					numeroRomano += "V";
+					numero -= 5;
+				} else if (numero === 4){
+					numeroRomano += "IV";
+					numero -= 4;				
+				} else if(numero <= 3 && numero > 0){
+					numeroRomano += "I";
+					numero -= 1;
+				}
+	      
+			} while (numero > 0)
+
+			console.info(numeroOriginal + " en números romanos es " + numeroRomano);
+
+		} else {
+	    
+			console.warn(numeroOriginal + "NO es un número valido (0-50)");
+			
+	  	}
+	}
 ```
