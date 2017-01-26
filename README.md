@@ -50,7 +50,7 @@ Teoría | Recursos
 [Clase 8](teoria/dia8.md) | [Clase 8](recursos/dia8.md)
 [Clase 9](teoria/dia9.md) | [Clase 9](recursos/dia9.md)
 [Clase 10](teoria/dia10.md) | [Clase 10](recursos/dia10.md)
-Clase 11 | Clase 11
+[Clase 11](teoria/dia11.md) | [Clase 11](recursos/dia11.md)
 Clase 12 | Clase 12
 Clase 13 | Clase 13
 Clase 14 | Clase 14
