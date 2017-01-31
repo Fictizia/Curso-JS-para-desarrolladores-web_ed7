@@ -21,19 +21,17 @@ var productos = [{
     nombre: 'barritas',
     stock: 5,
     precio: 5,
-    disponible: true,
     ubicacion: "A2",
 }, {
     nombre: 'zumo',
     stock: 10,
     precio: 10,
-    disponible: true,
+    
     ubicacion: "A3",
 }, {
     nombre: 'galletas',
     stock: 15,
     precio: 15,
-    disponible: true,
     ubicacion: "A4",
 }];
 
