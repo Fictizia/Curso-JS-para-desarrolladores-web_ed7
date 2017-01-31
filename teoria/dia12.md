@@ -139,7 +139,7 @@ Nota: Podría ser muy útil usar *setTimeout* para lanzar una función cada cier
 </body>
 </html>
 ```
-- [Demo](../otros/qunit.html)
+- [Demo](../OTROS/qunit.html)
 
 **[API Doc](http://api.qunitjs.com/):**
 
