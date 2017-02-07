@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+    <section class="contenedor">
+            <section class="iconoCargando">
+                <img src="img/cargando.gif"/>
+            </section>
+            <section class="contenedorLibros">
+                <section class="libro1"></section>
+                <section class="libro2"></section>
+                <section class="libro3"></section>
+                <section class="libro4"></section>
+            </section>
+    
+    <script>
+        var apiKey="20ae22c1f14243a9aa78326588c85082";
+        var contenido="";
+        var url="https://api.nytimes.com/svc/books/v3/lists.json?List=hardcover-fiction";
+        
+        
+        function peticionAjax (url) {
+            var xmlHttp = new XMLHttpRequest();
+
+                xmlHttp.onreadystatechange = function () {
+
+                    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                        var datos = (JSON.parse(xmlHttp.responseText));
+                    }
+                }
+            }
+        </script>
+    
+    </section>
+</body>
+</html>
