@@ -9,9 +9,7 @@ Objetivos Adicionales:
 
 Nota: Podría ser muy útil usar *setTimeout* para lanzar una función cada cierto tiempo.
 
-```javascript
-	// Tu solución!
-```
+- [Solucion](../OTROS/cuenta-atras.html)
 
 ### Testing
 
