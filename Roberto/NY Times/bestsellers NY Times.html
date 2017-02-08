@@ -14,21 +14,42 @@
             </section>
     
     <script>
-        var apiKey="20ae22c1f14243a9aa78326588c85082";
-        var contenido="";
-        var url="http://api.nytimes.com/svc/books/v3/lists.json?list=hardcover-fiction&api-key=20ae22c1f14243a9aa78326588c85082";
         
         
-        function peticionAjax (url) {
+        //imgBlkFront --> id imagenes amazon
+    function peticionAjax (url) {
             var xmlHttp = new XMLHttpRequest();
-
+            var apiKey="20ae22c1f14243a9aa78326588c85082";
+            var tipoLista ="hardcover-fiction";
+            var url="http://api.nytimes.com/svc/books/v3/lists.json?list="+ tipoLista +"&api-key=" + apiKey;    
                 xmlHttp.onreadystatechange = function () {
 
                     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
                         var datos = (JSON.parse(xmlHttp.responseText));
+                        var contenido = "";
+                        console.log(datos.results.length);
+                        for (var i=0; i<datos.results.length; i++)
+                            {
+                                contenido += "<h1>"+datos.results[i].book_details[0].title+"</h1>";
+                                contenido += "<p>"+datos.results[i].amazon_product_url+"</p>";
+                                
+                               
+                               // contenido += datos.results[i].amazon_product_url.getElementById("imgBlkFront");
+                                document.body.innerHTML = contenido;
+                            }
+                        
+                    } else if (xmlHttp.readyState === 4 && xmlHttp.status === 404) {
+                        console.error("ERROR! 404");
+                        console.info(JSON.parse(xmlHttp.responseText));
                     }
-                }
+                };
+            
+            
+            xmlHttp.open( "GET", url, true );
+                xmlHttp.send();
             }
+        
+        peticionAjax();
         </script>
     
     </section>
