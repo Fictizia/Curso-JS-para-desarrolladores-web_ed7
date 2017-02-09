@@ -6,12 +6,12 @@
             <section class="iconoCargando">
                 <img src="img/cargando.gif"/>
             </section>
-            <section class="contenedorLibros">
+ <!--           <section class="contenedorLibros">
                 <section class="libro1"></section>
                 <section class="libro2"></section>
                 <section class="libro3"></section>
                 <section class="libro4"></section>
-            </section>
+            </section>-->
     
     <script>
         
@@ -22,19 +22,18 @@
             var apiKey="20ae22c1f14243a9aa78326588c85082";
             var tipoLista ="hardcover-fiction";
             var url="http://api.nytimes.com/svc/books/v3/lists.json?list="+ tipoLista +"&api-key=" + apiKey;    
-                xmlHttp.onreadystatechange = function () {
+            xmlHttp.onreadystatechange = function () {
 
                     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
                         var datos = (JSON.parse(xmlHttp.responseText));
-                        var contenido = "";
-                        console.log(datos.results.length);
+                        var contenido = "";                        
                         for (var i=0; i<datos.results.length; i++)
                             {
                                 contenido += "<h1><strong>#"+datos.results[i].rank+"</strong> "+datos.results[i].book_details[0].title+"</h1>";
                                // contenido += datos.results[i].amazon_product_url.getElementById("imgBlkFront");
                                 contenido += "<p>Semanas en la lista: "+datos.results[i].weeks_on_list+"</p>";
                                  contenido += "<p><strong>Descripción:</strong> "+datos.results[i].book_details[0].description+"</p>";
-                                contenido += "<a href="+ datos.results[i].amazon_product_url +" target='_blanck'>"+datos.results[i].amazon_product_url+"</a>";                                
+                                contenido += "<a href="+ datos.results[i].amazon_product_url +" target='_blank'>"+datos.results[i].amazon_product_url+"</a>";                                
                                 document.body.innerHTML = contenido;
                             }
                         
