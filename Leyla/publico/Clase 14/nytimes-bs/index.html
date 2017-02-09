@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>The New York Times - Best Sellers</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1.0"/>
+
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+	<!--Vanilla.js-->
+	<script src="js/vanilla.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+
+		<div id="header-principal">
+			<h2 class="titulo-bestsellers">Best Sellers</h2>
+			<figure class="img-logo">
+				<img src="img/nyt-logo.png" alt="The New York Times" title="The New York Times" />
+			</figure>
+		</div>
+
+		<div id="header-secundario" style="display:none;">
+			<h2 class="subtitulo">Best Sellers</h2>
+			<h1 class="titulo-categoria" id="titulo-categoria"></h1>
+			<figure class="img-logo">
+				<img src="img/nyt-logo.png" alt="The New York Times" title="The New York Times" />
+			</figure>
+			<a href="#" id="btn-regresar" class="btn-regresar">BACK</a>
+		</div>
+
+	</header>
+	
+
+	<main role="main">	
+
+		<div class="spinner" id="loader">
+			<div class="cube1"></div>
+			<div class="cube2"></div>
+		</div>
+
+		<div class="error" id="error">
+			<div class="texto-error">
+				<p class="titulo">404 ERROR</p>
+				<p class="parrafo">Books were lost along the way...</p>
+				<a href="#" class="btn-regresar" id="btn-intentar">Try again</a>
+			</div>
+			<figure class="img-error">
+				<img src="img/error.svg" />
+			</figure>
+		</div>
+	
+		<ul class="listado-categorias" id="listado-categorias"></ul>
+
+		<ul class="listado-libros" id="listado-libros"></ul>
+
+	</main>
+
+	<!--SCRIPTS-->
+	<script type="text/javascript">
+
+		/*Variables necesarias*/
+		var fAhora = new Date();
+		fAhora = fAhora.toISOString().slice(0,10); //Obtengo la fecha en formato yyyy-mm-dd
+
+		var esVolver = false;
+
+		var sKey = '9eeb9c797bb84f60b34a576c680f1e2c';
+		var tituloCategoria = '';
+
+		var urlListCategorias = 'https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=' + sKey;
+
+		/************************************/
+		/*FUNCIÓN PARA PINTAR LAS CATEGORÍAS*/
+		/************************************/
+		function pintarCategorias(categorias){
+	
+			document.getElementById('loader').style.display = 'none';
+			
+			if(esVolver){
+				document.getElementById('listado-libros').innerHTML = '';
+				document.getElementById('header-principal').style.display = 'block';
+				document.getElementById('header-secundario').style.display = 'none';
+				esVolver = false;
+			}
+			
+			categorias.forEach(function(element,index,array){
+				
+				var sHtml = '';
+				sHtml += "<li data-category= '"+ element.list_name_encoded + "' data-title='" + element.display_name + "'>";
+				sHtml += "<p class='titulo-categoriaLista'>" + element.display_name + "</p>";
+				sHtml += "<p class='fecha-masantiguo'>Oldest: " + element.oldest_published_date + "</p>";
+				sHtml += "<p class='fecha-nuevo'>Newest: " + element.newest_published_date + "</p>";
+				sHtml += "<p class='actualizacion'>Updated: " + element.updated + "</p>";
+				sHtml += "<a class='btn-vermas' href='#'>READ MORE " + index + "</a>";
+				sHtml += "</li>";
+
+				document.getElementById('listado-categorias').innerHTML += sHtml;
+
+			});
+
+			/*asignamos evento*/
+			var miLibro = document.querySelector(".listado-categorias");
+			miLibro.onclick = function(evento){
+				var evento = evento || window.event;
+				var elemento = evento.target || evento.srcElement;
+				
+				console.info(elemento.parentNode.getAttribute('data-category'));
+				
+				var categoria = elemento.parentNode.getAttribute('data-category');
+				tituloCategoria = elemento.parentNode.getAttribute('data-title');
+				var urlLibros = 'https://api.nytimes.com/svc/books/v3/lists/' + fAhora + '/' + categoria + '.json?api-key=' + sKey;
+
+				peticionAjax(urlLibros, 'listadoLibros');
+			}
+			
+		}
+
+		/***************************************************/
+		/*FUNCIÓN PARA PINTAR LOS BEST SELLER POR CATEGORIA*/
+		/***************************************************/
+		function pintarLibros(libros){
+
+			document.getElementById('loader').style.display = 'none';
+			document.getElementById('header-principal').style.display = 'none';
+			document.getElementById('header-secundario').style.display = 'block';
+			document.getElementById('titulo-categoria').innerHTML = tituloCategoria;
+			document.getElementById('listado-categorias').innerHTML = '';
+
+			document.getElementById('btn-regresar').addEventListener('click', fRegresar);
+
+			libros.forEach(function(element,index,array){
+				
+				var sHtml = '';
+				sHtml += "<li>";
+				sHtml += "<figure class='img-portada'>";
+				sHtml += "<img src='" + element.book_image + "'/>";
+				sHtml += "</figure>";
+				sHtml += "<div class='titulo-libro'><span class='numero'>#" + (index + 1) + "</span><p>" + element.title + "</p></div>";
+				sHtml += "<p class='semanas-libro'><span>Weeks on list:</span> " + element.weeks_on_list + "</p>";
+				sHtml += "<p class='argumento-libro'>" + element.description + "</p>";
+				sHtml += "<a class='btn-comprar' href='" + element.amazon_product_url + "' target='_blank' >BUY AT AMAZON</a>";
+				sHtml += "</li>";
+				document.getElementById('listado-libros').innerHTML += sHtml;
+
+			});
+
+		}
+
+		/**************/
+		/*FUNCIÓN AJAX*/
+		/**************/
+		function peticionAjax(url, opcion) {
+	        var xmlHttp = new XMLHttpRequest();
+
+	        xmlHttp.onreadystatechange = function() {
+		        if(xmlHttp.readyState === 4){
+	        		var error, data;        		
+	        		if(xmlHttp.status === 200){
+	        			
+	        			document.getElementById('error').style.display = 'none';
+	        			
+	        			//pintamos datos
+	        			data = JSON.parse(xmlHttp.responseText);
+
+	        			if(opcion === 'listadoCategorias'){
+	        				pintarCategorias(data.results);
+	        			} else {
+	        				pintarLibros(data.results.books);
+	        			} 
+
+	        		} else{
+	        			//mostramos error
+	        			error = JSON.parse(xmlHttp.responseText);
+	        			document.getElementById('error').style.display = 'block';
+	        			document.getElementById('btn-intentar').addEventListener('click', fRegresar);
+	        		}
+		        }
+		    };
+
+		    xmlHttp.open("GET", url, true);
+		    xmlHttp.send();
+
+		}
+
+		peticionAjax(urlListCategorias, 'listadoCategorias');
+
+		function fRegresar(){
+			esVolver = true;
+			peticionAjax(urlListCategorias, 'listadoCategorias');
+		}
+	
+	</script>
+
+</body>
+</html>

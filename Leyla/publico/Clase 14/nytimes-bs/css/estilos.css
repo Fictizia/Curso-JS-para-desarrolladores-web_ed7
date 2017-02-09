@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900');
+
+/*************************************/
+/* RESET CSS */
+/*************************************/
+html { height: 100%; -webkit-text-size-adjust: none; -ms-text-size-adjust: 100%; }
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; vertical-align: baseline;/*font: inherit;*/}
+body { /*height: 100%;*/ margin: 0; margin: auto; padding: 0; word-spacing: normal; letter-spacing: normal; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+ins { text-decoration: none; }
+mark { font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help;  	}
+table { border-collapse: collapse; border-spacing: 0; }
+input, select, textarea { vertical-align: middle; -webkit-appearance: none; -moz-appearance: none; appearance: none;
+ outline: 0; border-radius:0; }
+ul { list-style-type: none; padding: 0; margin: 0; }
+ul li { list-style: none;  }
+ol { list-style-position: inside;  }
+a { color:#383838; cursor: pointer; text-decoration: none; outline: none; -o-transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+a:hover, a:active { outline: 0; }
+a:focus {  
+outline: 0; }
+sub, sup { position: relative; font-size: 75%; line-height: 0; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { height: auto; border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+audio:not([controls]) { display: none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block;  *display: inline;  *zoom: 1; }
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+
+/*************************************/
+/* ESTILOS PÁGINA */
+/*************************************/
+body { background: #eaeaea; font-size: 16px; font-family: 'Lato', sans-serif; font-weight: 300; color: #444444;  }
+
+header, main { max-width: 1200px; margin: 0 auto; }
+
+header { text-align: center; padding: 2em 0 4em 0; }
+header .subtitulo { font-weight: 300; font-size: 1.2em; text-transform: uppercase; letter-spacing: 0.4em; }
+header .titulo-categoria { display: inline-block; font-family: 'Georgia', serif; font-size: 3.5em; font-weight: bold; font-style: italic; color: #730484; padding: 0.3em 0; border-top: 1px solid #730484; border-bottom: 1px solid #730484; margin: 0.3em 0; }
+.img-logo img { max-width: 18%; opacity: 0.3; }
+
+.listado-libros { text-align: center;  }
+.listado-libros li { display: inline-block; max-width: 22%; padding: 0 2%; font-size: 1em; vertical-align: top; text-align: left; margin: 0 0 3em 0; }
+.listado-libros .img-portada { max-height: 323px; overflow: hidden;  }
+.listado-libros .img-portada img { width: 100%; }
+
+.titulo-libro { font-family: 'Georgia', serif; font-style: italic; margin: 1em 0 0 0; }
+.titulo-libro span { display: inline-block; font-family: 'Lato', sans-serif; font-style: normal; font-weight: 400; background: #730484; color: #FFFFFF; padding: 0.5em; margin: 0 0.5em 0 0; vertical-align: middle }
+.titulo-libro p { display: inline-block; max-width: 75%; vertical-align: middle; padding: 0.5em 0; font-size: 0.9em; }
+
+.semanas-libro { font-size: 0.8em; margin: 1em 0 0 0; color: #999999; }
+.argumento-libro { margin: 0.5em 0 1em 0; font-size: 0.9em; }
+
+.btn-comprar { display: inline-block; padding: 0.5em 1em; font-size: 0.9em; font-weight: 400; text-align: center; background: #f3f018; color: #000000; }
+
+
+/*Loader*/
+.spinner {
+	margin: 100px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	}
+
+.cube1, .cube2 {
+	background-color: #730484;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	-webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+	animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+	-webkit-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+	25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+	50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+	75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+	100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+	25% { 
+		transform: translateX(42px) rotate(-90deg) scale(0.5);
+	-webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+	} 50% { 
+		transform: translateX(42px) translateY(42px) rotate(-179deg);
+	-webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+	} 50.1% { 
+		transform: translateX(42px) translateY(42px) rotate(-180deg);
+	-webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+	} 75% { 
+		transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+	-webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+	} 100% { 
+		transform: rotate(-360deg);
+	-webkit-transform: rotate(-360deg);
+	}
+}
+
+/***/
+.titulo-bestsellers { display: inline-block; font-family: 'Georgia', serif; font-size: 3.5em; font-weight: bold; font-style: italic; color: #730484; padding: 0.3em 0; border-top: 1px solid #730484; border-bottom: 1px solid #730484; margin: 0.3em 0; }
+.img-logo img { max-width: 18%; opacity: 0.3; }
+
+.listado-categorias { text-align: center;  }
+.listado-categorias li { display: inline-block; width: 21%; padding: 1.5em; font-size: 1em; vertical-align: top; text-align: left; margin: 0 1.5% 3em 1.5%; border: 1px solid #FFFFFF; }
+.titulo-categoriaLista { font-family: 'Georgia', serif; font-size: 1.3em; font-style: italic; font-weight: bold; margin: 0 0 0.5em 0; }
+.fecha-masantiguo , .fecha-nuevo, .actualizacion { font-size: 0.9em; }
+.btn-vermas { display: inline-block; padding: 0.5em 1em; font-size: 0.9em; font-weight: 400; text-align: center; background: #730484; color: #FFFFFF; margin: 1em 0 0 0; }
+
+.img-error { text-align: center;  }
+.error { display: none; text-align: center; padding: 0 2em; }
+.spinner { }
+
+
+.btn-regresar { display: inline-block; padding: 0.5em 1em; font-size: 0.9em; font-weight: 400; text-align: center; background: #FFFFFF; color: #730484; margin: 1em 0 0 0; }
+
+.texto-error, .img-error { display: inline-block; vertical-align: middle; max-width: 50%; }
+.texto-error { text-align: left; padding: 0 3em 0 0; }
+.texto-error .titulo { font-size: 5em; color: #730484; font-weight: 400; }
+.texto-error .parrafo { font-family: 'Georgia', serif; font-size: 1.5em; }
+.img-error img { width: 100%; }
+
+
+/**************/
+/*MEDIAQUERIES*/
+/**************/
+@media screen and (max-width: 968px){
+	
+	header .titulo-categoria { font-size: 2.5em; margin: 0.3em 0.5em; }
+	.listado-categorias li { width: 28%; }
+	.listado-libros li { max-width: 30%; }
+
+}
+
+@media screen and (max-width: 940px){
+
+	.img-logo img { max-width: 30%; }
+	.listado-categorias li { width: 45%; margin: 0 1.5% 2em 1.5% }
+	.listado-libros li { max-width: 45%; margin: 0 1% 3em 1%; }
+
+}
+
+@media screen and (max-width: 678px){
+
+	.texto-error, .img-error { display: block; max-width: 100%; }
+	.texto-error { text-align: center; padding: 0; }
+	.img-error img { width: 50%; padding: 2em 0; }
+
+}
+
+@media screen and (max-width: 500px){
+
+	.img-logo img { max-width: 45%; }
+	.listado-categorias li { width: 90%; margin: 0 1.5% 1.5em 1.5% }
+	.listado-libros li { max-width: 70%; }
+	header .titulo-categoria { font-size: 2em; }
+
+	.texto-error .titulo { font-size: 3.5em; }
+	.texto-error .parrafo { font-size: 1em; }
+
+}
