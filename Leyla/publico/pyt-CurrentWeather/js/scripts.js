@@ -73,7 +73,7 @@ function obtenerHoraUnixUTC(unixTime){
 	var minutes = "0" + date.getMinutes();
 
 	//(hours < 10) ? '0' + hours : hours;
-	//(minutes < 10) ? '0' + minutes : minutes; 
+	//(minutes < 10) ? '0' + minutes : minutes;
 
 	// Will display time in 10:30:23 format
 	return hours + ':' + minutes.substr(-2);
@@ -81,6 +81,8 @@ function obtenerHoraUnixUTC(unixTime){
 
 
 function obtenerLiteralDia(dia){
+
+
 	var literal = '';
 
 	switch (dia){
@@ -92,8 +94,25 @@ function obtenerLiteralDia(dia){
 		case 5: literal = 'Friday'; break;
 		default: literal = 'Saturday';
 	}
+
 	return literal;
+	/*
+	var dias = ['Sunday', 'Monday', '...']
+	return dia > 0 && dia > 6 ? dias[dia] : "Saturday"
+	*/
 }
+
+function relativeStimation (data){
+	/* data = {
+	list = ['dias', et...] // lista de la que convertir la información
+	day = 1 //el numero presentado por la api/fecha
+	}
+	*/
+
+	//var dias = ['Sunday', 'Monday', '...']
+	return data.day > 0 && data.day > (data.list.lenght -1) ? data.list[data.day] : data.list[data.list.lenght -1]
+}
+
 
 function obtenerLiteralMes(mes){
 	var literal = '';
@@ -116,16 +135,6 @@ function obtenerLiteralMes(mes){
 }
 
 
-/*PINTAMOS LA FECHA ACTUAL*/
-	var fechaHoy = new Date();
-
-	var dia = fechaHoy.getDate();
-	var diaSemana = fechaHoy.getDay();
-	var diaLiteral = obtenerLiteralDia(diaSemana);
-	var mes = obtenerLiteralMes(fechaHoy.getMonth());
-
-	document.getElementById('fechaHoy').innerHTML = diaLiteral + ' ' + dia + ', ' + mes;
-
 /**************************/
 
 
@@ -135,13 +144,13 @@ function peticionAjax(url, callback) {
 
     xmlHttp.onreadystatechange = function() {
     	if(xmlHttp.readyState === 4){
-    		var error, data;        		
-    		
+    		var error, data;
+
     		if(xmlHttp.status === 200){
     			data = JSON.parse(xmlHttp.responseText)
     		} else{
     			error = JSON.parse(xmlHttp.responseText)
-    		} 
+    		}
     		callback(error, data)
     	}
     };
@@ -197,6 +206,14 @@ function pintarPronostico(err, data){
 		console.log('dia: ' + fechaNueva.getDay());
 		var dia = (fechaNueva.getDate() < 10) ? '0' + fechaNueva.getDate() : fechaNueva.getDate();
 		var mes = (fechaNueva.getMonth() < 10) ? '0' + fechaNueva.getMonth() : fechaNueva.getMonth();
+		// MIRAR!  https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/template_strings
+/*
+		var datosDia = `<li>
+			<p class='dia-literal'> ${obtenerLiteralDia(fechaNueva.getDay()).substr(0,3).toUpperCase()}</p>
+			<p class='dia-fecha'>${dia} / ${mes}</p>
+			....
+		</li>`
+*/
 
 		var datosDia = '';
 		datosDia += "<li>";
@@ -215,33 +232,35 @@ function pintarPronostico(err, data){
 }
 
 function pintarLocalidadPais (err, data){
-	console.log( err ? "Error:" + err : "Datos:" + data.city + ',' + data.countryCode);
+
 	var localidad = data.city;
 	//var region = data.regionName;
 	var pais = data.country;
 	var codigoPais = data.countryCode;
+	var urlTiempo = 'http://api.openweathermap.org/data/2.5/weather?q=' + localidad + ',' + codigoPais + '&units=metric&APPID=' + keyTiempo;
+	var urlPronostico = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + localidad + ',' + codigoPais + '&units=metric&appid='+ keyTiempo;
+
+	console.log( err ? "Error:" + err : "Datos:" + data.city + ',' + data.countryCode);
 
 	/*pintamos el lugar*/
 	document.getElementById('localidad').innerHTML = localidad;
 	document.getElementById('pais').innerHTML = pais;
 
 
-	var urlTiempo = 'http://api.openweathermap.org/data/2.5/weather?q=' + localidad + ',' + codigoPais + '&units=metric&APPID=' + keyTiempo; 
-	peticionAjax(urlTiempo, pintarTiempoHoy);
 
-	var urlPronostico = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + localidad + ',' + codigoPais + '&units=metric&appid='+ keyTiempo;
+	peticionAjax(urlTiempo, pintarTiempoHoy);
 	peticionAjax(urlPronostico, pintarPronostico);
 
 }
 
-peticionAjax("http://ip-api.com/json", pintarLocalidadPais);
+
 
 /******************************************/
 /*MOSTRAR PANTALLA PARA CAMBIAR A PORTRAIT*/
 /******************************************/
 
 function readDeviceOrientation() {
-      		
+
 		if (Math.abs(window.orientation) == 90) {
 			// Landscape
 			document.getElementById('coverLandscape').style.display = "table";
@@ -256,4 +275,24 @@ function readDeviceOrientation() {
 		}
 	}
 
+
+/* inicializacion....*/
+
+/*PINTAMOS LA FECHA ACTUAL*/
+	var fechaHoy = new Date();
+
+	var dia = fechaHoy.getDate();
+	var diaSemana = fechaHoy.getDay();
+	var diaLiteral = obtenerLiteralDia(diaSemana); // relativeStimation({"day": fechaHoy.getDay(), list: week}) (crear variable de meses fuera...)
+	var mes = obtenerLiteralMes(fechaHoy.getMonth()); // relativeStimation({"day": fechaHoy.getMonth(), list: months}) (crear variable de meses fuera...)
+
+	document.getElementById('fechaHoy').innerHTML = diaLiteral + ' ' + dia + ', ' + mes; // MIRAR! https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+
+peticionAjax("http://ip-api.com/json", pintarLocalidadPais);
+
 window.addEventListener("orientationchange", readDeviceOrientation);
+
+// mirar! -> http://www.etnassoft.com/2011/03/14/funciones-autoejecutables-en-javascript/
+
+//Mirar! -> https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed6/blob/master/otros/buenos_dias_madrid/buenos_dias_madrid.html
+// Mirar -> http://api.openweathermap.org/data/2.5/forecast?q=Madrid,es&mode=json&lang=sp&units=metric&APPID=
