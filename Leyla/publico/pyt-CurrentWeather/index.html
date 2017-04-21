@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Weather</title>
+	<meta name="description" content="The Current Weather">
+
+	<link rel="icon" href="img/favicon.ico">
+
+	<!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#222222">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="EventPoints">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EventPoints">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="img/manifest/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="16x16" href="img/manifest/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="32x32" href="img/manifest/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="img/manifest/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="img/manifest/icon-512x512.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#222222">
+    <meta name="msapplication-tap-highlight" content="no">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1.0"/>
+
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="css/estilos-vertical.css">
+
+</head>
+
+<body id="Body">
+
+	<div id="coverLandscape" class="coverLandscape">
+		<div>
+			<img src="img/device2.svg" />
+			<p>PLEASE FLIP YOUR DEVICE</p>
+		</div>
+	</div>
+
+	<ul id="listadoContenedor" class="listado-contenedor">
+		
+		<li>
+			<!--LUGAR-->
+			<h1 class="lugar">
+				<p class="localidad" id="localidad">Majadahonda</p>, <p class="pais" id="pais">Spain</p>
+			</h1>
+		</li>
+
+		<li>
+			<!--FECHA-->
+			<h2 class="fecha" id="fechaHoy">Sunday 9, April</h2>
+		</li>
+		
+		<li>
+			<div class="iconoSprite">
+				<div id="iconoHoy"></div>
+			</div>
+		</li>
+
+		<li>
+			<!--DESCRIPCION-->
+			<p class="tiempo-descripcion" id="tiempo-descripcion">Clear</p>
+		</li>
+		
+		<li>
+			<ul class="listado-dositems">
+				<li>
+					<!--TEMPERATURAS HOY-->
+					<div class="tiempo-temperaturas">
+						<div class="temp-actual" id="temp-actual">23</div>
+						<div>
+							<span class="temp-min" id="temp-min">23</span>
+							<span class="temp-max" id="temp-max">23</span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<!--DATOS ADICIONALES HOY-->
+					<div class="tiempo-adicionales">
+						<p class="icon-humedad" id="humedad">Humidity 25%</p>
+						<p class="icon-ese" id="viento">Wind 2.6</p>
+						<p class="icon-amanecer" id="amanecer">Sunrise 7:45</p>
+						<p class="icon-anochecer" id="anochecer">Sunset 20:49</p>
+					</div>
+				</li>
+			</ul>
+		</li>
+
+		<li>
+			<ul id="listado-dias" class="listado-secundario">
+				
+			</ul>
+		</li>
+
+	</ul>
+
+	<!--JS-->
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	
+</body>
+</html>
